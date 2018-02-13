@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.pau.att" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.pau.att" 
+	ios-CFBundleVersion="1"
+	android-versionCode="1000000"
+	version="1.0.0" 
+	xmlns="http://www.w3.org/ns/widgets" 
+	xmlns:cdv="http://cordova.apache.org/ns/1.0"
+>
     <name>PAU Attendance System</name>
     <description>
 		Punjab Agricultural University Attendance System
