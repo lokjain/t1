@@ -1,5 +1,4 @@
-﻿<html>
-<head>
+﻿<html><head>
 <title>PAU Mobile Attendance APP</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http:"> -->
@@ -30,19 +29,22 @@ function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
 }
 	function onDeviceReady() {
-//		document.getElementById("networkInfo").addEventListener("click", networkInfo);
-//		document.getElementById("networkInfo").addEventListener("click", networkInfo);
 		document.addEventListener("offline", onOffline, false);
 		document.addEventListener("online", onOnline, false);
-		var devversion=device.version;
+		document.addEventListener("backbutton", function (e) {
+			if($.mobile.activePage.is('#loginform')){
+					e.preventDefault();
+			}
+		}, false );
+ 		var devversion=device.version;
 		var osversion=device.platform;
-		alert('Device Ready');
 		checkConnection();
 		navigator.splashscreen.hide(); 
 	}
+
+
 	function checkConnection() {
 	    var networkState = navigator.network.connection.type;
-		alert(networkState);
 	    var states = {};
 	    states[Connection.UNKNOWN]  = 'Unknown connection';
 	    states[Connection.ETHERNET] = 'Ethernet connection';
@@ -68,11 +70,10 @@ function onLoad(){
 		}
 
 	function onOnline() {
-//   alert('You are now online!');
 	}
 	function exitFromApp(){
                 navigator.app.exitApp();
-             }
+    }
 
 	$( document ).bind( "mobileinit", function() {
 	 	$.support.cors = true;
@@ -91,7 +92,6 @@ $(document).ready(function(){
     	var mediaTimer = null;
     	var media_file = null;
     	var tid=null;
-//		var myWebHost="http://192.168.73.139/localpau/acad/matt/";
 		var myWebHost="http://www.pau-fcp.in/acad/matt/";
 //		var myWebHost="http://localhost/localpau/acad/matt/";
 		function mPage(eleid){
@@ -190,9 +190,7 @@ $(document).ready(function(){
 			});	
 		$("a").on("click",function(){
 			var myID = $(this).attr("id");
-//			alert (myID);
 			switch (true) {
-				
 				case (myID==="mlout"):
 					$.post(myWebHost+'logout.php','',function(data){
 						alert(data);
@@ -200,7 +198,6 @@ $(document).ready(function(){
 						window.localStorage["p"]="";        
 						window.sessionStorage["ses"]="";
 						window.localStorage["aut"]="";
-					
 						window.localStorage.removeItem["u"];
 						window.localStorage.removeItem["p"];        
 						window.sessionStorage.removeItem["ses"];
@@ -254,7 +251,6 @@ $(document).ready(function(){
 					break;
 
 				case (myID==="GCL"):
-//					alert($('#cal').text("course"));
 				 	$.post(myWebHost+'myattnxt.php',$('#calss').serialize(),function(data){
 						$("#Attnxt").html(data);
 						$("#Attnxt").trigger('create');
@@ -264,7 +260,6 @@ $(document).ready(function(){
 					break;
 
 				case (myID==="RATT"):
-//					alert($('#cal').text("course"));
 				 	$.post(myWebHost+'myreattnxt.php',$('#calss').serialize(),function(data){
 						$("#reAttnxt").html(data);
 						$("#reAttnxt").trigger('create');
@@ -274,7 +269,6 @@ $(document).ready(function(){
 					break;
 
 				case (myID==="EXTT"):
-//					alert($('#cal').text("course"));
 				 	$.post(myWebHost+'myexattnxt.php',$('#calss').serialize(),function(data){
 						$("#reAttnxt").html(data);
 						$("#reAttnxt").trigger('create');
@@ -284,7 +278,6 @@ $(document).ready(function(){
 					break;
 
 				case (myID==="RESU"):
-//					alert($('#cal').text("course"));
 				 	$.post(myWebHost+'myresattnxt.php',$('#Myres').serialize(),function(data){
 						$("#resAttnxt").html(data);
 						$("#resAttnxt").trigger('create');
@@ -294,7 +287,6 @@ $(document).ready(function(){
 					break;
 
 				case (myID==="AR"):
-//					alert($('#cal').text("course"));
 				 	$.post(myWebHost+'myattreg.php',$('#cous').serialize(),function(data){
 						$("#Attsl").html(data);
 						$("#Attsl").trigger('create');
@@ -382,7 +374,7 @@ $(document).ready(function(){
 					</div>
 					<div id="submitDiv" data-role="fieldcontain">
 						<a data-role="button" id="login">Login</a>
-						<a data-role="button" id="exitApp">Close</a>
+						<a data-role="button" id="mCan">Close</a>
 					</div>
 				</form>
 			</div>
