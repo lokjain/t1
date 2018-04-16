@@ -75,6 +75,9 @@
         <splash src="res/screen/windows/splashscreen.png" target="SplashScreen" />
         <splash src="res/screen/windows/splashscreenphone.png" target="SplashScreenPhone" />
     </platform>
+	<icon src="res/icon/ios/iTunesArtwork@2x.png" width="1024" height="1024" />
+	
+    <preference name="phonegap-version" value="cli-7.1.0" />
     <preference name="SplashScreen" value="screen" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 	<preference name="SplashScreenDelay" value="2000" />
