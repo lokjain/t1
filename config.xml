@@ -71,7 +71,7 @@
         <splash height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
         <splash height="1536" src="res/screen/ios/screen-ipad-landscape-2x.png" width="2048" />
         <splash height="568" src="res/screen/ios/screen-iphone-portrait-568h.png" width="320" />
-        <splash height="1136" src="res/screen/ios/screen-iphone-portrait-568h@2x.png" width="640" />
+        <splash height="1136" src="res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
     </platform>
     <platform name="windows">
         <splash src="res/screen/windows/splashscreen.png" target="SplashScreen" />
