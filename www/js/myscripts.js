@@ -57,9 +57,9 @@
 			var mediaTimer = null;
 			var media_file = null;
 			var tid=null;
-			var myWebHost="http://192.168.73.139/localpau/acad/matt/";
+	//		var myWebHost="http://192.168.73.139/localpau/acad/matt/";
 			var myWebHost="http://www.pau-fcp.in/acad/matt/";
-	//		var myWebHost="http://localhost/localpau/acad/matt/";
+//			var myWebHost="http://localhost/localpau/acad/matt/";
 			function mPage(eleid){
 				$.mobile.changePage($(eleid), {
 					  allowSamePageTransition : true,
