@@ -57,9 +57,8 @@
 			var mediaTimer = null;
 			var media_file = null;
 			var tid=null;
-	//		var myWebHost="http://192.168.73.139/localpau/acad/matt/";
 			var myWebHost="http://www.pau-fcp.in/acad/matt/";
-//			var myWebHost="http://localhost/localpau/acad/matt/";
+	//		var myWebHost="http://localhost/localpau/acad/matt/";
 			function mPage(eleid){
 				$.mobile.changePage($(eleid), {
 					  allowSamePageTransition : true,
@@ -288,6 +287,10 @@
 							loadMyPage('',myWebHost+'myPatt.php','#nbgeocontent','');
 							mPage('#geoBlock');
 							break;
+						case (myID==="FPWD"):
+							loadMyPage('',myWebHost+'myFpwd.php','#nbgeocontent','');
+							mPage('#geoBlock');
+							break;
 						case (myID==="PTT"):
 							loadMyPage('',myWebHost+'myPTT.php','#mytimetable','');
 							mPage('#timetable');
@@ -297,7 +300,7 @@
 							mPage('#geoBlock');
 							break;
 						case (myID==="PWRD"):
-							loadMyPage('',myWebHost+'myPWRD.php','#nsgeocontent','');
+							loadMyPage('',myWebHost+'myPWRD.php?a=aut','#nsgeocontent','');
 							mPage('#geolocation1');
 							break;
 						case (myID==="PSATT"):
@@ -307,6 +310,25 @@
 								myInit();
 								mPage('#AttNxt');				
 							});		
+							break;							
+						case (myID==="CPWD"):
+							var pd=$('#chgpwd').val();
+							var cpd=$('#cchgpwd').val();
+//							alert(pd);
+							if(pd===cpd){							
+								$.post(myWebHost+'myCpwd.php',$('#CPWDF').serialize(),function(data){
+									if(data.trim()==1){
+										alert ("Password Changed Succesfully!");
+										mPage('#pagelang');		
+									}
+								});		
+							} else {
+								alert ("Both Password do not match !")	;
+								pd="";
+								cpd="";
+							}
+							
+							
 							break;							
 						case (myID==="PSRES"):
 							var psres_yr=$('#psres_year').val();
