@@ -287,10 +287,6 @@
 							loadMyPage('',myWebHost+'myPatt.php','#nbgeocontent','');
 							mPage('#geoBlock');
 							break;
-						case (myID==="FPWD"):
-							loadMyPage('',myWebHost+'myFpwd.php','#nbgeocontent','');
-							mPage('#geoBlock');
-							break;
 						case (myID==="PTT"):
 							loadMyPage('',myWebHost+'myPTT.php','#mytimetable','');
 							mPage('#timetable');
@@ -311,10 +307,14 @@
 								mPage('#AttNxt');				
 							});		
 							break;							
+						case (myID==="FPWD"):
+							loadMyPage('',myWebHost+'myFpwd.php','#nbgeocontent','');
+							mPage('#geoBlock');
+							break;
 						case (myID==="CPWD"):
 							var pd=$('#chgpwd').val();
 							var cpd=$('#cchgpwd').val();
-//							alert(pd);
+							alert(pd);
 							if(pd===cpd){							
 								$.post(myWebHost+'myCpwd.php',$('#CPWDF').serialize(),function(data){
 									if(data.trim()==1){
@@ -327,8 +327,6 @@
 								pd="";
 								cpd="";
 							}
-							
-							
 							break;							
 						case (myID==="PSRES"):
 							var psres_yr=$('#psres_year').val();
